@@ -2,46 +2,125 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Basic HTML Page</title>
+    <title>Space Station</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #1f2833;
+            color: white;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .nav-buttons {
+            margin-top: 10px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #45a29e;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #66fcf1;
+            color: black;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 200px;
+            border-radius: 5px;
+            border: 2px solid #333;
+            transition: transform 0.2s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Welcome to My Page</h1>
-    <p>This is a simple HTML page created as an example.</p>
+<header>
+    <h1>Space Station</h1>
+    <div class="nav-buttons">
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('gallery')">Gallery</button>
+        <button onclick="showSection('reservations')">Reservations</button>
+    </div>
+</header>
 
-    <h2>Using the em Tag</h2>
-    <p>
-        This is an example sentence with an <em>emphasized</em> word.
-    </p>
+<main>
+    <section id="home">
+        <p>Welcome to the Space Station! Explore the universe like never before.</p>
+    </section>
 
-    <h2>External Link Example</h2>
-    <p>
-        Click the link below to visit YouTube:<br>
-        <a href="https://www.youtube.com/" target="_blank">Go to YouTube</a>
-    </p>
+    <section id="gallery">
+        <div class="gallery">
+            <img src="Images/Thumb/thumbnail_1.jpg" alt="Space Image 1">
+            <img src="Images/Thumb/thumbnail_2.jpg" alt="Space Image 2">
+            <img src="Images/Thumb/thumbnail_3.jpg" alt="Space Image 3">
+            <img src="Images/Thumb/thumbnail_4.jpg" alt="Space Image 4">
+            <img src="Images/Thumb/thumbnail_5.jpg" alt="Space Image 5">
+            <img src="Images/Thumb/thumbnail_6.jpg" alt="Space Image 6">
+            <img src="Images/Thumb/thumbnail_7.jpg" alt="Space Image 7">
+            <img src="Images/Thumb/thumbnail_8.jpg" alt="Space Image 8">
+            <img src="Images/Thumb/thumbnail_9.jpg" alt="Space Image 9">
+        </div>
+    </section>
 
-    <hr>
+    <section id="reservations">
+        <p>Reserve your spot at the Space Station today! (Reservation form placeholder)</p>
+    </section>
+</main>
 
-    <h2>Semantic HTML Tags Example</h2>
+<script>
+    function showSection(id) {
+        const sections = ['home', 'gallery', 'reservations'];
+        sections.forEach(sec => {
+            document.getElementById(sec).style.display = (sec === id) ? 'block' : 'none';
+        });
+    }
 
-    <article>
-        <h3>Article Section</h3>
-        <p>
-            This is an example of an <strong>article</strong> element. It contains content that
-            can stand on its own.
-        </p>
-
-        <details>
-            <summary>Click to expand more information</summary>
-            <p>
-                This additional text is revealed using the <em>details</em> and <em>summary</em> tags.
-            </p>
-            <p>
-                Last updated on:
-                <time datetime="2025-02-20">February 20, 2025</time>
-            </p>
-        </details>
-    </article>
+    // Show Home section by default
+    showSection('home');
+</script>
 
 </body>
 </html>
